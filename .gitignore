@@ -41,6 +41,7 @@ sitemap_detail.xml
 
 # idea file
 *.iml
+.idea
 
 
 

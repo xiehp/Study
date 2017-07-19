@@ -1,4 +1,0 @@
-spring.boot.admin.url: http://localhost:9080/BBB
-management.security.enabled: false   
-
-spring.application.name=SpringBootClient1

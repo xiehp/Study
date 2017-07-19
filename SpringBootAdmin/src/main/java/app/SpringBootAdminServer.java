@@ -4,6 +4,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
@@ -20,11 +21,11 @@ import de.codecentric.boot.admin.notify.filter.FilteringNotifier;
 
 @Configuration
 @EnableAutoConfiguration
-// @EnableDiscoveryClient
+@EnableDiscoveryClient
 @EnableAdminServer
-public class SpringBootAdminApplication {
+public class SpringBootAdminServer {
 	public static void main(String[] args) {
-		SpringApplication.run(SpringBootAdminApplication.class, args);
+		SpringApplication.run(SpringBootAdminServer.class, args);
 	}
 
 	@Profile("secure")

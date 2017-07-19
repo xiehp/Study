@@ -1,0 +1,13 @@
+
+
+spring:
+  boot:
+    admin:
+      url: http://localhost:8080
+  application:
+    name: SpringBootClient1
+management:
+  security:
+    enabled: false
+server:
+  port: 8081
