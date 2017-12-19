@@ -35,9 +35,9 @@ public class SpringBootAdminServer {
 		@Override
 		protected void configure(HttpSecurity http) throws Exception {
 			// Page with login form is served as /login.html and does a POST on /login
-			http.formLogin().loginPage("/login.html").loginProcessingUrl("/login").permitAll();
+			http.formLogin().loginPage("/springBootAdmin/login.html").loginProcessingUrl("/springBootAdmin/login").permitAll();
 			// The UI does a POST on /logout on logout
-			http.logout().logoutUrl("/logout");
+			http.logout().logoutUrl("/springBootAdmin/logout");
 			// The ui currently doesn't support csrf
 			http.csrf().disable();
 

@@ -6,13 +6,17 @@ security:
 spring:
   boot:
     admin:
-      url: http://localhost:8080
-      username: "${security.user.name}"       #These two are needed so that the client
-      password: "${security.user.password}"   #can register at the protected server api
+      url: http://localhost:8080/springBootAdmin
+      #These two are needed so that the client
+      username: ${security.user.name}
+      #can register at the protected server api
+      password: ${security.user.password}
       client:
         metadata:
-          user.name: "${security.user.name}"          #These two are needed so that the server
-          user.password:  "${security.user.password}" #can access the proteceted client endpoints
+          #These two are needed so that the server
+          user.name: ${security.user.name}
+          #can access the proteceted client endpoints
+          user.password: ${security.user.password}
   application:
     name: SpringBootClient1
 management:

@@ -17,8 +17,7 @@ spring:
     admin:
       url: http://localhost:8080
   profiles:
-    active:
-      - secure
+    active: secure
 
 ---
 spring:
@@ -37,12 +36,18 @@ spring:
   profiles: secure
   boot:
     admin:
-      username: "${security.user.name}"       #These two are needed so that the client
-      password: "${security.user.password}"   #can register at the protected server api
+      context-path: /springBootAdmin
+      url: http://localhost:8080/springBootAdmin
+      #These two are needed so that the client
+      username: ${security.user.name}
+      #can register at the protected server api
+      password: ${security.user.password}
       client:
         metadata:
-          user.name: "${security.user.name}"          #These two are needed so that the server
-          user.password:  "${security.user.password}" #can access the proteceted client endpoints
+          #These two are needed so that the server
+          user.name: ${security.user.name}
+          #can access the proteceted client endpoints
+          user.password: ${security.user.password}
 
 security:
   user:
@@ -52,9 +57,10 @@ security:
 eureka:
   instance:
     leaseRenewalIntervalInSeconds: 10
+    metadata-map:
+      user.name: ${security.user.name}
+      user.password: ${security.user.password}
   client:
     registryFetchIntervalSeconds: 5
     serviceUrl:
       defaultZone: ${EUREKA_SERVICE_URL:http://localhost:8761}/eureka/
-
-management.security.enabled: false
